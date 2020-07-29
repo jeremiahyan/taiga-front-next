@@ -9,10 +9,16 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { TgButtonComponent } from './button.component';
+import { TgLoadingComponent } from '../loading/loading.component';
 
 describe('ButtonComponent', () => {
   let spectator: Spectator<TgButtonComponent>;
-  const createComponent = createComponentFactory(TgButtonComponent);
+  const createComponent = createComponentFactory({
+    component: TgButtonComponent,
+    declarations: [
+      TgLoadingComponent,
+    ],
+  });
 
   beforeEach(() => spectator = createComponent({
     // The component inputs
@@ -23,12 +29,11 @@ describe('ButtonComponent', () => {
   }));
 
   it('should have a success class by default', () => {
-    expect(spectator.query('button')).toHaveClass('btn');
+    expect(spectator.query('div')).toHaveClass('btn-inner');
   });
 
   it('should set the class name according to the [className] input', () => {
     spectator.setInput('loading', true);
-    expect(spectator.query('button ')).toHaveExactText('Loading...');
-    expect(spectator.query('button')).not.toHaveAttribute('icon');
+    expect(spectator.query('div')).not.toHaveAttribute('icon');
   });
 });
