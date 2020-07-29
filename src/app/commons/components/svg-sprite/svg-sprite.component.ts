@@ -9,13 +9,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'tg-loading',
-  templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.css'],
+  selector: 'tg-svg-sprite',
+  templateUrl: './svg-sprite.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TgLoadingComponent {
-
-  constructor() { }
-
-}
+export class TgSvgSpriteComponent {}

@@ -19,6 +19,7 @@ import { TgLoadingComponent } from './loading/loading.component';
   ],
   exports: [
     TgButtonComponent,
+    TgLoadingComponent,
   ],
   imports: [
     CommonModule,
