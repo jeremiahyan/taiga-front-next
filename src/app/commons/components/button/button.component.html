@@ -9,9 +9,9 @@ the root directory of this source tree.
 <div
   class="btn-inner"
   [attr.variant]="variant">
-  <ng-container *ngIf="loading">
-    Loading...
-  </ng-container>
+  <div class="loading" *ngIf="loading">
+    <tg-loading></tg-loading>
+  </div>
   <ng-container *ngIf="!loading">
     <ng-content></ng-content>
   </ng-container>
