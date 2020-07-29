@@ -7,9 +7,10 @@ the root directory of this source tree.
 -->
 
 <button
-  [attr.disabled]="disabled ? 'disabled' : null"
-  [attr.ariaLabel]="ariaLabel ? ariaLabel : null"
-  [attr.type]="type"
+  class="btn"
+  [disabled]="disabled ? 'disabled' : null"
+  [attr.aria-label]="ariaLabel ? ariaLabel : null"
+  [type]="type"
   [attr.variant]="variant">
   <ng-container *ngIf="loading">
     Loading...
