@@ -61,3 +61,42 @@ describe('ButtonComponent', () => {
   });
 });
 ```
+
+## Storybook
+
+Create a new `n-componentName.stories.ts` file under the `stories` folder. For example `3-tgExample.stories.ts`
+
+Use knobs to allow the design team to interact with the component and test the inputs and attributes. 
+
+```ts
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { text, boolean, withKnobs, select } from '@storybook/addon-knobs';
+import { CommonComponentsModule } from '@/app/commons/components/common-components.module';
+import faker from 'faker';
+
+storiesOf('tgExample', module)
+  .addDecorator(withKnobs)
+  .addDecorator(
+    moduleMetadata({
+      declarations: [
+        TgOtherExampleComponent // Declare any other component required
+      ],
+      imports: [
+        CommonComponentsModule, //Import CommonsModules to access to shared components
+      ],
+    })
+  )
+  .add('Example Component', () => {
+    const loading = boolean('Loading', false);
+    return {
+      template: `
+        <tg-example [loading]="loading">
+          Example text
+        </tg-example>
+      `,
+      props: {
+        loading,
+      },
+    };
+  });
+```
