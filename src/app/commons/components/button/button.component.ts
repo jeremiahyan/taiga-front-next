@@ -18,12 +18,12 @@ import { ButtonDisplay } from './button.model';
  *  <button tg-button
  *    [variant]="primary"
  *    [loading]="false"
+ *    [icon]="'check'"
  *    disabled="disabled"
  *    aria-label="Alternative text for the button"
- *    type="button"
- *    [icon]="'check'" >
+ *    type="button">
  *      Text
- *   </tg-button>
+ *   </button>
  * ```
  *
  */
@@ -37,16 +37,9 @@ import { ButtonDisplay } from './button.model';
 })
 export class TgButtonComponent implements OnInit {
 
-  // constructor(
-  //   @Attribute('type') public type: ButtonType = 'button'
-  // ) {}
-
   @Input() public variant: ButtonDisplay = 'primary';
   @Input() public loading = false;
   @Input() public icon: string;
-
-  // @HostBinding('attr.disabled') @Input() public disabled = false;
-  // @HostBinding('attr.aria-label') @Input() public ariaLabel: string;
 
   public ngOnInit() {
     console.log(this.loading, this.icon, this.variant);
