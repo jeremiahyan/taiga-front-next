@@ -12,6 +12,7 @@ module.exports = {
       from: "/src/styles.css"
     }),
     require('postcss-mixins'),
+    require('postcss-color-mod-function'),
     require('postcss-preset-env')({
       stage: 0
     })

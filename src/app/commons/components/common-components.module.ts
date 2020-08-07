@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { TgButtonComponent } from './button/button.component';
 import { TgLoadingComponent } from './loading/loading.component';
 import { TgCheckboxComponent } from './forms/checkbox/checkbox.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TgCheckboxComponent } from './forms/checkbox/checkbox.component';
   ],
   imports: [
     CommonModule,
+    MatDialogModule,
   ],
 })
 export class CommonComponentsModule { }

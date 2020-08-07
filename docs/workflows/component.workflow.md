@@ -36,10 +36,82 @@ Use the `ChangeDetectionStrategy.OnPush` by default meaning that automatic chang
 
 ### Table component
 
-Table components we will use the CDK table component: https://material.angular.io/cdk/table
+Table components will use the CDK table component: https://material.angular.io/cdk/table
 As an example, you will find a basic implementation of a table, for reference under '@app/commons/components/table'
 
-## Testing
+### Modal component
+
+Modals will use the Angular CDK Dialog Component: https://material.angular.io/components/dialog
+
+#### Opening a modal
+
+```ts
+this.dialog.open(TgExampleComponent, {
+      data: {
+        title: 'This a modal!',
+        description: 'Bacon ipsum dolor amet venison ham hock pig sirloin. '
+      },
+      height: '400px',
+      width: '600px',
+    });
+```
+
+The `open` function accepts two parameters:
+
+  * The component to render into the modal, in this case `TgExampleComponent`
+  * Optional parameters. The parameters under the data property are similar to component inputs 
+
+See all accepted optional parameters here: https://material.angular.io/components/dialog/api
+
+#### Emiting data from the component
+
+You can subscribe to the component close to send any data you need
+
+```ts
+  this.dialogRef.afterClosed().subscribe((result: string) => {
+    console.log(`Modal result: ${result}`); // Pizza!
+  });
+```
+And when closing the modal send the data.
+
+```ts
+  this.dialogRef.close('Pizza!');
+```
+
+So you'll get the console `Modal result: Pizza!`
+
+#### Displaying passed data 
+
+Here you'll see an example of how the inner component that the `material dialog` displays the data.
+
+```ts
+import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+
+export interface DialogData {
+  title: string;
+  description: string;
+}
+
+// (...) The @Component decorator
+
+export class TgExampleComponent {
+
+  title: string;
+  description: string;
+
+  constructor(
+      private dialogRef: MatDialogRef<TgModalComponent>,
+      @Inject(MAT_DIALOG_DATA) data: DialogData) {
+
+      // This is the data passed when opening the modal.
+      this.title = data.title;
+      this.description = data.description;
+  }
+}
+```
+
+## Testing components
 
 For testing we're using [spectator](https://github.com/ngneat/spectator). This is the test of the previous service example.
 

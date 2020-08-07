@@ -16,6 +16,7 @@ This layer holds any **global** settings for your project. This layer should onl
 @import "responsive.css";
 @import "spacing.css";
 @import "z-index.css";
+@import "modal.css";
 
 *,
 *::before,

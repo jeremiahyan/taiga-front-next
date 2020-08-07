@@ -8,6 +8,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { TgSvgSpriteComponent } from '@/app/commons/components/svg-sprite/svg-sprite.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { TgSvgSpriteComponent } from '@/app/commons/components/svg-sprite/svg-sp
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {
       runtimeChecks: {
@@ -53,6 +56,16 @@ import { TgSvgSpriteComponent } from '@/app/commons/components/svg-sprite/svg-sp
         return () => {
           return appConfigService.fetch();
         };
+      },
+    },
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: {
+        panelClass: 'tg-modal-panel',
+        backdropClass: 'tg-modal-backdrop',
+        hasBackdrop: true,
+        closeOnNavigation: true,
+        restoreFocus: true,
       },
     },
   ],

@@ -1,0 +1,58 @@
+/*
+Copyright (c) 2014-2020 Taiga Agile LLC
+
+This source code is licensed under the terms of the
+GNU Affero General Public License found in the LICENSE file in
+the root directory of this source tree.
+*/
+
+.tg-modal-backdrop {
+  background: color-mod(var(--color-black600) alpha(32%));
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
+  z-index: 1000;
+
+  &.cdk-overlay-backdrop-showing {
+    opacity: 1;
+  }
+}
+
+.tg-modal-backdrop ~ div {
+  display: flex;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.cdk-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.tg-modal-panel .mat-dialog-container {
+  background: var(--color-white);
+  box-shadow:
+    0 11px 15px -7px color-mod(var(--color-black) alpha(20%)),
+    0 24px 38px 3px color-mod(var(--color-black) alpha(15%)),
+    0 9px 46px 8px color-mod(var(--color-black) alpha(12%));
+  color: var(--color-black600);
+  /* stylelint-disable-next-line declaration-no-important */
+  transform: scale(1) !important;
+}
