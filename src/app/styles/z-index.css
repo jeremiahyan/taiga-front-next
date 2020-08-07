@@ -7,9 +7,9 @@ the root directory of this source tree.
 */
 
 :root {
-  --none: 0;
-  --common: 1;
-  --slider: 5;
-  --modal: 10;
-  --overlay: 90;
+  --z-none: 0;
+  --z-common: 1;
+  --z-slider: 5;
+  --z-modal: 10;
+  --z-overlay: 90;
 }
