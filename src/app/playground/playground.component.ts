@@ -43,8 +43,6 @@ import { UserstoriesApiService } from '@/app/api/userstories/userstories-api.ser
 import { UserstoryList } from '@/app/api/userstories/userstories.model';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { TgModalComponent } from '../commons/components/modal/modal.component';
 
 @Component({
   selector: 'tg-playground',
@@ -74,8 +72,7 @@ export class PlaygroundComponent implements OnInit {
     private readonly epicApiService: EpicsApiService,
     private readonly userstoriesApiService: UserstoriesApiService,
     private breakpointObserver: BreakpointObserver,
-    private fb: FormBuilder,
-    private dialog: MatDialog
+    private fb: FormBuilder
   ) {
     this.stats$ = this.statsApiService.getDiscover();
     this.projectId$ = this.resolverApiService.project('taiganext');
